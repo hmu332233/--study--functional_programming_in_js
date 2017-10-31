@@ -11,7 +11,7 @@ function _filter(list, predicate) {
   //   }
   // }
   _each(list, function (val) {
-    new_list.push(predicate(val));
+    if (predicate(val)) new_list.push(val);
   });
   return new_list;
 }
@@ -20,7 +20,7 @@ function _filter(list, predicate) {
 // list {Array} : 대상이 되는 배열
 // mapper {function} : 
 //
-// 해당 조건에 맞는 인자들만 남긴다.
+// 모든 대상에 대해 함수에 대한 처리를 한 후 돌려준다.
 function _map(list, mapper) {
   var new_list = [];
   // for (var i = 0; i < list.length; i++) {

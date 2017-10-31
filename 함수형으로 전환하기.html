@@ -116,9 +116,47 @@
               });
   console.log(ages);
   
-  console.log(_map([1,2,3], function (num) { 
-                return num*2;
-              }));
+  console.log(
+    _map([1,2,3], function (num) { 
+      return num*2;
+    }
+  ));
+              
+              
+  // 객체지향으로 이미 있는 함수
+  var new_array = [1,2,3].map(function (val) {
+    return val * 2;
+  });
+  
+  console.log(new_array);
+  
+  new_array = [1,2,3,4].filter(function (val) {
+    return val % 2;
+  });
+  
+  console.log(new_array);
+  
+  console.log(
+    // array가 아니라서 실행못함. 객체지향의 한계
+    // document.querySelectorAll('*').map(function(node) {
+    //   return node.nodeName;
+    // })
+  );
+  console.log(
+    // length가 있고 그것이 숫자이고 숫자로 이루어진 key:value로 되어있다면 array like
+    // 이 함수는 array like까지 다룰 수 있다
+    _map(document.querySelectorAll('*'), function (node) {
+      return node.nodeName;
+    })
+  );
+  
+// 3. 내부 다형성
+  // 3-1. predi, iter, mapper
+  // predi: 어떤 조건을 리턴하는 함수 (predicate)
+  // iter: 돌면서 반복적으로 실행하는 함수 (iterate)
+  // mapper: 무언가 무언가 사이를 매핑하는 함수
+
+  // 사용자가 데이터형에 따라서 function을 마음대로 만들 수 있다는 것
   
 </script>
 
